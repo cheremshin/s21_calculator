@@ -6,7 +6,8 @@
 
 
 int main(void) {
-    translate_to_polish("123(5)");
+    translate_to_polish("(5+1)");
+    //3+4*2/(1-5)^2
 
     return 0;
 }
