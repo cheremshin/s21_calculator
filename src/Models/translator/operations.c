@@ -34,3 +34,15 @@ operation_priority operations_priority[OPERATIONS_COUNT] = {
     {'-', 1},
     {0, 0}
 };
+
+int get_priority(char symbol) {
+    int priority = 0;
+
+    for (int i = 0; (i < OPERATIONS_COUNT) && (priority == 0); i++) {
+        if (operations_priority[i].operation == symbol) {
+            priority = operations_priority[i].priority;
+        }
+    }
+
+    return priority;
+}
