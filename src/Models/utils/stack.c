@@ -1,6 +1,24 @@
 #include "stack.h"
 
 
+char get_char(generic_data_t data) {
+    return data.value.c;
+}
+
+double get_double(generic_data_t data) {
+    return data.value.d;
+}
+
+void set_char(generic_data_t *data, char value) {
+    data->value.c = value;
+    data->type_id = CHAR_TYPE_ID;
+}
+
+void set_double(generic_data_t *data, double value) {
+    data->value.d = value;
+    data->type_id = DOUBLE_TYPE_ID;
+}
+
 stack_t *init_stack(int type_id) {
     stack_t *out = NULL;
 

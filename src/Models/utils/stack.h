@@ -41,6 +41,41 @@ typedef struct stack {
     size_t top;
 } stack_t;
 
+/****************************
+ *  Generic data functions  *
+ ***************************/
+
+/**
+ * @brief Utility function helps in getting char from generic_data_t
+ * 
+ * @param data Generic data to get char
+ * @return Char stored in generic data
+ */
+char get_char(generic_data_t data);
+
+/**
+ * @brief Utility function helps in getting double from generic_data_t
+ * 
+ * @param data Generic data to get double
+ * @return Double stored in generic data
+ */
+double get_double(generic_data_t data);
+
+/**
+ * @brief Utility function helps in setting char to generic_data_t
+ * 
+ * @param data Generic data to set value
+ * @param value Char to be set
+ */
+void set_char(generic_data_t *data, char value);
+
+/**
+ * @brief Utility function helps in setting double to generic_data_t
+ * 
+ * @param data Generic data to set value
+ * @param value Douvke to be set
+ */
+void set_double(generic_data_t *data, double value);
 
 /*************************
  *    Stack functions    *
