@@ -29,7 +29,11 @@ extern operation_priority operations_priority[OPERATIONS_COUNT];
  * @param string String to be translated
  * @return stack_t Stack consists of char generic data
  */
-stack_t *translate_to_polish(char *string);
+stack *translate_to_polish(char *string);
+
+void process_number(char *string, int *i, stack *out);
+void process_prefix_function(char *string, int *i, stack *operations);
+void process_close_bracket(char *string, int *i, stack *operations, stack *out);
 
 int is_digit(char symbol);
 int is_prefix_function(char symbol);
