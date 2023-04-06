@@ -8,8 +8,7 @@ stack_t *translate_to_polish(char *string) {
 
     for (size_t i = 0; string[i] != '\0'; i++) {
         if (is_digit(string[i])) {
-            char_data.value.c = string[i];
-            push(out, char_data);
+            get_number(string, &i, out);
         } else {
             
         }
@@ -22,10 +21,10 @@ void get_number(char *string, int *i, stack_t *out) {
     generic_data_t char_data = {.type_id = CHAR_TYPE_ID, .value = 0};
 
     while (is_digit(string[*i])) {
-        char_data.value.c = string[*i++];
+        set_char(&char_data, string[*i++]);
         push(out, char_data);
     }
 
-    char_data.value.c = 0;
+    set_char(&char_data, 0);
     push(out, char_data);
 }
