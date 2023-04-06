@@ -12,7 +12,7 @@
 #define CHAR_TYPE_ID     1
 #define DOUBLE_TYPE_ID   2
 
-#define INIT_SIZE        10
+#define INIT_SIZE        256
 #define MULTIPLIER       2
 
 /*************************
