@@ -12,9 +12,6 @@ stack *translate_to_polish(char *string) {
         } else if (is_prefix_function(string[i]) || string[i] == '(') {
             process_prefix_function(string, &i, operations);
         } else if (string[i] == ')') {
-            for (int j = out->top; j > 0; j--) {
-                printf("%c\n", out->data[j]);
-            }
             process_close_bracket(string, &i, operations, out);
         } else {
             process_binary_operation(string, &i, operations, out);
