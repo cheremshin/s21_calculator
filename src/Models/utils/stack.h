@@ -29,17 +29,17 @@ typedef struct generic_data {
         double d;
     } value;
     int type_id;
-} generic_data_t;
+} generic_data;
 
 /**
  * @brief Struct represents stack
  * 
  */
 typedef struct stack {
-    generic_data_t *data;
+    generic_data *data;
     size_t size;
     size_t top;
-} stack_t;
+} stack;
 
 /****************************
  *  Generic data functions  *
@@ -51,7 +51,7 @@ typedef struct stack {
  * @param data Generic data to get char
  * @return Char stored in generic data
  */
-char get_char(generic_data_t data);
+char get_char(generic_data data);
 
 /**
  * @brief Utility function helps in getting double from generic_data_t
@@ -59,7 +59,7 @@ char get_char(generic_data_t data);
  * @param data Generic data to get double
  * @return Double stored in generic data
  */
-double get_double(generic_data_t data);
+double get_double(generic_data data);
 
 /**
  * @brief Utility function helps in setting char to generic_data_t
@@ -67,7 +67,7 @@ double get_double(generic_data_t data);
  * @param data Generic data to set value
  * @param value Char to be set
  */
-void set_char(generic_data_t *data, char value);
+void set_char(generic_data *data, char value);
 
 /**
  * @brief Utility function helps in setting double to generic_data_t
@@ -75,7 +75,7 @@ void set_char(generic_data_t *data, char value);
  * @param data Generic data to set value
  * @param value Douvke to be set
  */
-void set_double(generic_data_t *data, double value);
+void set_double(generic_data *data, double value);
 
 /*************************
  *    Stack functions    *
@@ -87,21 +87,21 @@ void set_double(generic_data_t *data, double value);
  * @param type_id Id of stack data
  * @return stack_t* Pointer to stack structure
  */
-stack_t *init_stack(int type_id);
+stack *init_stack(int type_id);
 
 /**
  * @brief Functuon that clears stack allocated memory and sets NULL in it
  * 
  * @param stack Stack to be cleared
  */
-void delete_stack(stack_t **stack);
+void delete_stack(stack **stack);
 
 /**
  * @brief Util function that doubles the allocated stack data memory
  * 
  * @param stack Stack to be doubled
  */
-void resize_stack(stack_t *stack);
+void resize_stack(stack *stack);
 
 /**
  * @brief Function that pushes some value to stack
@@ -109,7 +109,7 @@ void resize_stack(stack_t *stack);
  * @param stack Stack for pushing data into it
  * @param value Generic data to be pushed
  */
-void push(stack_t *stack, generic_data_t value);
+void push(stack *stack, generic_data value);
 
 /**
  * @brief Function that removes top of stack and returns it back
@@ -117,7 +117,7 @@ void push(stack_t *stack, generic_data_t value);
  * @param stack Stack for removing data from it
  * @return generic_data_t Pointer to generic data removed from top of stack
  */
-generic_data_t *pop(stack_t *stack);
+generic_data *pop(stack *stack);
 
 /**
  * @brief Funtction that returns generic data from top of stack
@@ -125,6 +125,6 @@ generic_data_t *pop(stack_t *stack);
  * @param stack Stack to get its top
  * @return generic_data_t Pointer to generic data to get
  */
-generic_data_t *peek(stack_t *stack);
+generic_data *peek(stack *stack);
 
 #endif //  SRC_MODELS_UTILS_STACK_H_
