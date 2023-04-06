@@ -34,8 +34,12 @@ stack *translate_to_polish(char *string);
 void process_number(char *string, int *i, stack *out);
 void process_prefix_function(char *string, int *i, stack *operations);
 void process_close_bracket(char *string, int *i, stack *operations, stack *out);
+void process_binary_operation(char *string, int *i, stack *operations, stack *out);
 
 int is_digit(char symbol);
 int is_prefix_function(char symbol);
+
+int get_priority(char symbol);
+void set_space(stack *out);
 
 #endif // SRC_MODELS_TRANSLATOR_H_
