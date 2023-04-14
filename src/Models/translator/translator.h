@@ -36,8 +36,6 @@ void process_prefix_function(char *string, int *i, stack_c *operations);
 void process_close_bracket(char *string, int *i, stack_c *operations, stack_c *out);
 void process_binary_operation(char *string, int *i, stack_c *operations, stack_c *out);
 
-void move_operations_to_out(stack_c *operations, stack_c *out);
-
 int is_digit(char symbol);
 int is_prefix_function(char symbol);
 
