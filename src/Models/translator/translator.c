@@ -1,5 +1,6 @@
 #include "translator.h"
 
+
 stack_c *translate_to_polish(char *string) {
     char operation;
     stack_c *out = init_stack();
@@ -15,14 +16,10 @@ stack_c *translate_to_polish(char *string) {
         } else {
             process_binary_operation(string, &i, operations, out);
         }
+        set_space(out);
     }
 
     transfer_data(operations, out);
-
-    // DEBUG  
-    while (out->top > 0) { 
-        printf("%c ", pop(out));
-    }
 
     return out;
 }
