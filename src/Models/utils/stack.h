@@ -11,7 +11,6 @@
 
 #define INIT_SIZE        256
 #define MULTIPLIER       2
-#define OUT_OF_MEMORY    100
 
 /*************************
  *      Structures       *
@@ -34,25 +33,23 @@ typedef struct stack_c {
 /**
  * @brief Function that inits stack
  * 
- * @param pointer Memory address for stack allocation
- * @return Exit code
+ * @return Pointer to stack structure
  */
-int *init_stack_c(stack_c **pointer);
+stack_c *init_stack();
 
 /**
  * @brief Functuon that clears stack allocated memory and sets NULL in it
  * 
  * @param stack Stack to be cleared
  */
-void delete_stack_c(stack_c **stack);
+void delete_stack(stack_c **stack);
 
 /**
  * @brief Util function that doubles the allocated stack data memory
  * 
  * @param stack Stack to be doubled
- * @return Exit code
  */
-int resize_stack(stack_c *stack);
+void resize_stack(stack_c *stack);
 
 /**
  * @brief Function that pushes some value to stack
@@ -71,7 +68,7 @@ void push(stack_c *stack, char value);
 char pop(stack_c *stack);
 
 /**
- * @brief Funtction that returns char from top of stack without removing
+ * @brief Funtction that returns top of stack without removing
  * 
  * @param stack Stack to get its top
  * @return Char from top of stack
