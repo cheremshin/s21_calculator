@@ -26,10 +26,15 @@ void process_close_bracket(char *string, int *i, stack_c *operations, stack_c *o
 }
 
 void process_binary_operation(char *string, int *i, stack_c *operations, stack_c *out) {
-    while ((is_prefix_function(peek(operations))) ||
-           (get_priority(peek(operations)) >= get_priority(string[*i])) ||
-           ((peek(operations) != '^') && (get_priority(peek(operations)) == get_priority(string[*i])))) {
-        push(out, pop(operations));
+    if (peek(operations) != '(') {
+        char stack_top = peek(operations);
+        char op = string[*i];
+
+        while ((is_prefix_function(stack_top)) ||
+              (get_priority(stack_top) >= get_priority(op))) {
+            push(out, pop(operations));
+            stack_top = peek(operations);
+        }
     }
 
     push(operations, string[(*i)++]);
