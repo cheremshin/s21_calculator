@@ -1,54 +1,36 @@
 #include "translator.h"
 
 
-void process_number(char *string, int *i, stack *out) {
-    generic_data char_data = {.type_id = CHAR_TYPE_ID, .value = 0};
-
+void process_number(char *string, int *i, stack_c *out) {
     while (is_digit(string[*i])) {
-        set_char(&char_data, string[(*i)++]);
-        push(out, char_data);
+        push(out, string[(*i)++]);
     }
 }
 
-void set_space(stack *out) {
-    generic_data char_data = {.type_id = CHAR_TYPE_ID, .value = 0};
-
-    char out_top = out->top > 0 ? get_char(*peek(out)) : 0;
-    if (is_digit(out_top)) {
-        set_char(&char_data, 0);
-        push(out, char_data);
+void set_space(stack_c *out) {
+    if (is_digit(peek(out))) {
+        push(out, 0);
     }
 }
 
-void process_prefix_function(char *string, int *i, stack *operations) {
-    generic_data char_data = {.type_id = CHAR_TYPE_ID, .value = 0};
-
-    set_char(&char_data, string[(*i)++]);
-    push(operations, char_data);
+void process_prefix_function(char *string, int *i, stack_c *operations) {
+    push(operations, string[(*i)++]);
 }
 
-void process_close_bracket(char *string, int *i, stack *operations, stack *out) {
-    generic_data char_data = {.type_id = CHAR_TYPE_ID, .value = 0};
-
-    set_char(&char_data, get_char(*pop(operations)));
-    while (get_char(char_data) != '(') {
-        push(out, char_data);
-        set_char(&char_data, get_char(*pop(operations)));
+void process_close_bracket(char *string, int *i, stack_c *operations, stack_c *out) {
+    while (peek(operations) != '(' && peek(operations) != 0) {
+        push(out, pop(operations));
     }
+    pop(operations);
+    (*i)++;
 }
 
-void process_binary_operation(char *string, int *i, stack *operations, stack *out) {
-    generic_data char_data = {.type_id = CHAR_TYPE_ID, .value = 0};
-
-    char stack_top = operations->top > 0 ? get_char(*peek(operations)) : 0;
-    while ((is_prefix_function(stack_top)) ||
-           (get_priority(stack_top) >= get_priority(string[*i])) ||
-           ((stack_top != '^') && (get_priority(stack_top) == get_priority(string[*i])))) {
-        set_char(&char_data, get_char(*pop(operations)));
-        push(out, char_data);
-        stack_top = operations->top > 0 ? get_char(*peek(operations)) : 0;
+void process_binary_operation(char *string, int *i, stack_c *operations, stack_c *out) {
+    while ((is_prefix_function(peek(operations))) ||
+           (get_priority(peek(operations)) >= get_priority(string[*i])) ||
+           ((peek(operations) != '^') && (get_priority(peek(operations)) == get_priority(string[*i])))) {
+        push(out, pop(operations));
     }
 
-    set_char(&char_data, string[(*i)++]);
-    push(operations, char_data);
+    push(operations, string[(*i)++]);
 }

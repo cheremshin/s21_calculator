@@ -1,10 +1,9 @@
 #include "translator.h"
 
-stack *translate_to_polish(char *string) {
+stack_c *translate_to_polish(char *string) {
     char operation;
-    stack *out = init_stack(CHAR_TYPE_ID);
-    stack *operations = init_stack(CHAR_TYPE_ID);
-    generic_data char_data = {.type_id = CHAR_TYPE_ID, .value = 0};
+    stack_c *out = init_stack();
+    stack_c *operations = init_stack();
 
     for (int i = 0; string[i] != '\0';) {
         if (is_digit(string[i])) {
@@ -18,14 +17,11 @@ stack *translate_to_polish(char *string) {
         }
     }
 
-    while(operations->top > 0) {
-        set_char(&char_data, get_char(*(pop(operations))));
-        push(out, char_data);
-    }
+    transfer_data(operations, out);
 
     // DEBUG  
     while (out->top > 0) { 
-        printf("%c ", get_char(*(pop(out))));
+        printf("%c ", pop(out));
     }
 
     return out;
