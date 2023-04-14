@@ -75,4 +75,12 @@ char pop(stack_c *stack);
  */
 char peek(stack_c *stack);
 
+/**
+ * @brief Function that pushes all data from source stack to destination with removing from first one
+ * 
+ * @param source Stack to popping data from
+ * @param destination Stack for pushing data to
+ */
+void transfer_data(stack_c *source, stack_c *destination);
+
 #endif //  SRC_MODELS_UTILS_STACK_H_

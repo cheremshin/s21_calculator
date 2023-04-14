@@ -50,8 +50,14 @@ char peek(stack_c *stack) {
     char out = 0;
 
     if (stack->top > 0) {
-        out = &stack->data[stack->top - 1];
+        out = stack->data[stack->top - 1];
     }
 
     return out;
+}
+
+void transfer_data(stack_c *source, stack_c *destination) {
+    while (source->top > 0) {
+        push(destination, pop(source));
+    }
 }
