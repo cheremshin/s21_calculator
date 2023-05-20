@@ -4,6 +4,18 @@ int is_digit(char symbol) {
     return (((symbol >= '0') && (symbol <= '9')) || (symbol == '.'));
 }
 
+int is_x(char symbol) {
+    return (symbol == 'x');
+}
+
+int is_open_bracket(char symbol) {
+    return (symbol == '(');
+}
+
+int is_close_bracket(char symbol) {
+    return (symbol == ')');
+}
+
 int is_prefix_function(char symbol) {
     int result = 0;
 
