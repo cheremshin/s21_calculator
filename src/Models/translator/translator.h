@@ -31,12 +31,20 @@ extern operation_priority operations_priority[OPERATIONS_COUNT];
  */
 stack_c *translate_to_polish(char *string);
 
+/**************************
+ *   Internal functions   *
+  ************************/
+
 void process_number(char *string, int *i, stack_c *out);
+void process_x(char *string, int *i, stack_c *out);
 void process_prefix_function(char *string, int *i, stack_c *operations);
 void process_close_bracket(char *string, int *i, stack_c *operations, stack_c *out);
 void process_binary_operation(char *string, int *i, stack_c *operations, stack_c *out);
 
 int is_digit(char symbol);
+int is_x(char symbol);
+int is_open_bracket(char symbol);
+int is_close_bracket(char symbol);
 int is_prefix_function(char symbol);
 
 int get_priority(char symbol);
