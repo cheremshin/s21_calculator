@@ -2,7 +2,9 @@
 #define SRC_MODELS_TRANSLATOR_H_
 
 #include <stdlib.h>
+
 #include "../utils/stack.h"
+#include "../utils/common.h"
 
 
 #define SHORTCUTS_COUNT  10
@@ -41,10 +43,6 @@ void process_prefix_function(char *string, int *i, stack_c *operations);
 void process_close_bracket(char *string, int *i, stack_c *operations, stack_c *out);
 void process_binary_operation(char *string, int *i, stack_c *operations, stack_c *out);
 
-int is_digit(char symbol);
-int is_x(char symbol);
-int is_open_bracket(char symbol);
-int is_close_bracket(char symbol);
 int is_prefix_function(char symbol);
 
 int get_priority(char symbol);

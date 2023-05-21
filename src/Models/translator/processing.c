@@ -2,7 +2,7 @@
 
 
 void process_number(char *string, int *i, stack_c *out) {
-    while (is_digit(string[*i])) {
+    while (is_digit(string[*i]) || is_dot(string[*i])) {
         push(out, string[(*i)++]);
     }
 }
