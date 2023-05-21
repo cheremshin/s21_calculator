@@ -1,5 +1,5 @@
 #include "preparer.h"
-
+#include <stdio.h>
 
 char *prepare_to_translate(char *string) {
     int status = 0;
@@ -23,15 +23,17 @@ char *prepare_to_translate(char *string) {
 
 void remove_spaces(char *string) {
     char *copy = (char *)malloc(EXPRESSION_LENGTH * sizeof(char));
-    strcpy(string, copy);
+    strcpy(copy, string);
 
     int j = 0;
     for (int i = 0; copy[i] != '\0'; i++) {
         if (copy[i] != ' ') string[j++] = copy[i];
     }
     string[j] = '\0';
+
+    free(copy);
 }
 
 void convert_symbols(char *string) {
-    
+
 }
