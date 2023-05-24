@@ -7,20 +7,13 @@
 #include "../utils/common.h"
 
 
-#define SHORTCUTS_COUNT  10
 #define OPERATIONS_COUNT 19
-
-typedef struct operation_shortcut {
-    char *operation;
-    char shortcut;
-} operation_shortcut;
 
 typedef struct operation_priority {
     char operation;
     int priority;
 } operation_priority;
 
-extern operation_shortcut operation_shortcuts[SHORTCUTS_COUNT];
 extern operation_priority operations_priority[OPERATIONS_COUNT];
 
 
