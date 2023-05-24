@@ -7,10 +7,11 @@
 #include "../utils/common.h"
 
 
-#define EXPRESSION_LENGTH 256
+#define EXPRESSION_LENGTH      256
 #define POSSIBLE_SYMBOLS_COUNT 34
 
 extern char possible_symbols[POSSIBLE_SYMBOLS_COUNT];
+
 
 /**
  * @brief A function that attempts to prepare an incoming string
@@ -31,6 +32,8 @@ int check_symbols(char *string);
 
 void remove_spaces(char *string);
 void convert_symbols(char *string);
+
+void accept_shortcuts(char *string, char *copy, int *i, int *j);
 
 int is_correct_number(char *string, int *i);
 
