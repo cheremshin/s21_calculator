@@ -18,7 +18,8 @@ extern char possible_symbols[POSSIBLE_SYMBOLS_COUNT];
  * for convertion to RPN
  * 
  * @param string String to be prepared
- * @return char* Pointer to prepared string (null - if incoming string is incorrect)
+ * @return char* Pointer to prepared string (null - if incoming string
+ * is incorrect, should be freed)
  */
 char *prepare_to_translate(char *string);
 
