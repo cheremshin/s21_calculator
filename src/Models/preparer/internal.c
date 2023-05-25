@@ -4,8 +4,7 @@
 void remove_spaces(char *string) {
     char *copy = (char *)calloc(EXPRESSION_LENGTH, sizeof(char));
 
-    int j = 0;
-    for (int i = 0; string[i] != '\0'; i++) {
+    for (int i = 0, j = 0; string[i] != '\0'; i++) {
         if (string[i] != ' ') copy[j++] = string[i];
     }
 
@@ -16,8 +15,7 @@ void remove_spaces(char *string) {
 void convert_symbols(char *string) {
     char *copy = (char *)calloc(EXPRESSION_LENGTH, sizeof(char));
 
-    int j = 0;
-    for (int i = 0; string[i] != '\0'; i++) {
+    for (int i = 0, j = 0; string[i] != '\0'; i++) {
         if (is_digit(string[i]) ||
             is_dot(string[i]) ||
             is_operation(string[i]) ||
