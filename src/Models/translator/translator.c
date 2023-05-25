@@ -1,9 +1,9 @@
 #include "translator.h"
 
 
-stack_c *translate_to_polish(char *string) {
-    stack_c *out = init_stack();
-    stack_c *operations = init_stack();
+char *translate_to_polish(char *string) {
+    stack_t *out = init_stack(CHAR_TYPE);
+    stack_t *operations = init_stack(CHAR_TYPE);
 
     for (int i = 0; string[i] != '\0';) {
         if (is_digit(string[i])) {
@@ -20,6 +20,9 @@ stack_c *translate_to_polish(char *string) {
     }
 
     transfer_data(operations, out);
+    
+    char *translated_expression = (char *)calloc(out->top, sizeof(char));
+    convert_to_string(out, translated_expression);
 
-    return out;
+    return translated_expression;
 }
