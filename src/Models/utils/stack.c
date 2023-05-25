@@ -1,8 +1,8 @@
 #include "stack.h"
 
 
-stack *init_stack(int type) {
-    stack *stack = malloc(sizeof(stack));
+stack_t *init_stack(int type) {
+    stack_t *stack = malloc(sizeof(stack_t));
 
     stack->size = INIT_SIZE;
     stack->top = 0;
@@ -12,13 +12,13 @@ stack *init_stack(int type) {
     return stack;
 }
 
-void delete_stack(stack **stack) {
+void delete_stack(stack_t **stack) {
     free((*stack)->elements);
     free(*stack);
     *stack = NULL;
 }
 
-void resize_stack(stack *stack) {
+void resize_stack(stack_t *stack) {
     stack_element *tmp = realloc(stack->elements,
                         stack->size * MULTIPLIER * sizeof(stack_element));
     
@@ -28,7 +28,7 @@ void resize_stack(stack *stack) {
     }
 }
 
-void push(stack *stack, void *value) {
+void push(stack_t *stack, void *value) {
     if (stack->top == stack->size) {
         resize_stack(stack);
     }
@@ -43,7 +43,7 @@ void push(stack *stack, void *value) {
     }
 }
 
-void pop(stack *stack, void *p) {
+void pop(stack_t *stack, void *p) {
     if (stack->top > 0) {
         stack->top--;
 
@@ -59,7 +59,7 @@ void pop(stack *stack, void *p) {
     }
 }
 
-void peek(stack *stack, void *p) {
+void peek(stack_t *stack, void *p) {
     if (stack->top > 0) {
         switch (stack->type)
         {
@@ -73,7 +73,7 @@ void peek(stack *stack, void *p) {
     }
 }
 
-void transfer_data(stack *source, stack *destination) {
+void transfer_data(stack_t *source, stack_t *destination) {
     void *value = malloc(sizeof(double));
 
     while (source->top > 0) {
@@ -82,7 +82,7 @@ void transfer_data(stack *source, stack *destination) {
     }
 }
 
-void convert_to_string(stack *source, char *destination) {
+void convert_to_string(stack_t *source, char *destination) {
     for (int i = 0; i < source->top; i++) {
         destination[i] = source->elements[i].data.value_c;
     }
