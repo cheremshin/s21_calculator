@@ -13,12 +13,24 @@ int is_x(char symbol) {
     return (symbol == 'x');
 }
 
-int is_operation(char symbol) {
+int is_binary_operation(char symbol) {
     return (symbol == '+' ||
             symbol == '-' ||
             symbol == '*' ||
             symbol == '/' ||
             symbol == '^');
+}
+
+int is_unary_operation(char symbol) {
+    int status = 0;
+
+    if (symbol == '~' || symbol == '$') status = 1;
+
+    for (int i = 0; i < SHORTCUTS_COUNT && !status; i++) {
+        if (symbol == operation_shortcuts[i].shortcut) status = 1;
+    }
+
+    return status;
 }
 
 int is_open_bracket(char symbol) {
