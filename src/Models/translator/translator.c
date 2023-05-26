@@ -6,7 +6,6 @@ char *translate_to_polish(char *string) {
     stack_c *operations = init_stack(CHAR_TYPE);
 
     for (int i = 0; string[i] != '\0';) {
-        printf("%d\n", i);
         if (is_digit(string[i])) {
             process_number(string, &i, out);
         } else if (is_x(string[i])) {
