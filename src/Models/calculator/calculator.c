@@ -1,6 +1,6 @@
 #include "calculator.h"
 #include "../utils/common.h"
-
+#include <stdio.h>
 
 double calculate(char *expression, double *x) {
     double result = 0;
@@ -14,10 +14,19 @@ double calculate(char *expression, double *x) {
         } else {
             perform_operation(stack, expression, &i);
         }
+        printf("== %d == ", i + 1);
+        for (int j = 0; j < stack->top; j++) {
+            printf("%f ", stack->elements[j].data.value_d);
+            if (j == stack->top - 1) {
+                printf("\n");
+            }
+        }
     }
 
     pop(stack, &result);
     delete_stack(&stack);
+
+    printf("%f\n", result);
 
     return result;
 }
