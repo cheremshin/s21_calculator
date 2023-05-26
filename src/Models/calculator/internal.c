@@ -22,7 +22,6 @@ void push_number(stack_c *stack, char *expression, int *i) {
 
 void push_x(stack_c *stack, double *x, int *i) {
     push(stack, x);
-    (*i)++;
 }
 
 void perform_operation(stack_c *stack, char *expression, int *i) {
@@ -36,7 +35,6 @@ void perform_operation(stack_c *stack, char *expression, int *i) {
     }
 
     push(stack, &result);
-    (*i)++;
 }
 
 double perform_binary_operation(stack_c *stack, char operation) {
