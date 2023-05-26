@@ -4,7 +4,7 @@
 
 double calculate(char *expression, double *x) {
     double result = 0;
-    stack_t *stack = init_stack(DOUBLE_TYPE);
+    stack_c *stack = init_stack(DOUBLE_TYPE);
 
     for (int i = 0; expression[i] != '\0'; i++) {
         if (is_digit(expression[i])) {
@@ -17,7 +17,7 @@ double calculate(char *expression, double *x) {
     }
 
     pop(stack, &result);
-    delete_stack(stack);
+    delete_stack(&stack);
 
     return result;
 }

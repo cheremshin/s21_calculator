@@ -20,10 +20,10 @@ double calculate(char *expression, double *x);
  *   Internal functions   *
   ************************/
 
-void push_number(stack_t *stack, char *expression, int *i);
-void push_x(stack_t *stack, double *x, int *i);
-void perform_operation(stack_t *stack, char *expression, int *i);
-double perform_binary_operation(stack_t *stack, char operation);
-double perform_unary_operation(stack_t *stack, char operation);
+void push_number(stack_c *stack, char *expression, int *i);
+void push_x(stack_c *stack, double *x, int *i);
+void perform_operation(stack_c *stack, char *expression, int *i);
+double perform_binary_operation(stack_c *stack, char operation);
+double perform_unary_operation(stack_c *stack, char operation);
 
 #endif // SRC_MODELS_CALCULATOR_H_

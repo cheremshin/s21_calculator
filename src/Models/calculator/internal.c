@@ -1,7 +1,7 @@
 #include "calculator.h"
 
 
-void push_number(stack_t *stack, char *expression, int *i) {
+void push_number(stack_c *stack, char *expression, int *i) {
     double value = 0;
     int met_dot = 0;
     int numbers_after_dot = 0;
@@ -20,12 +20,12 @@ void push_number(stack_t *stack, char *expression, int *i) {
     push(stack, &value);
 }
 
-void push_x(stack_t *stack, double *x, int *i) {
+void push_x(stack_c *stack, double *x, int *i) {
     push(stack, x);
     (*i)++;
 }
 
-void perform_operation(stack_t *stack, char *expression, int *i) {
+void perform_operation(stack_c *stack, char *expression, int *i) {
     double result = 0;
     char operation = expression[*i];
 
@@ -39,7 +39,7 @@ void perform_operation(stack_t *stack, char *expression, int *i) {
     (*i)++;
 }
 
-double perform_binary_operation(stack_t *stack, char operation) {
+double perform_binary_operation(stack_c *stack, char operation) {
     double result = 0, operand_1 = 0, operand_2 = 0;
 
     pop(stack, &operand_2);
@@ -70,7 +70,7 @@ double perform_binary_operation(stack_t *stack, char operation) {
     return result;
 }
 
-double perform_unary_operation(stack_t *stack, char operation) {
+double perform_unary_operation(stack_c *stack, char operation) {
     double result = 0, operand = 0;
     pop(stack, &operand);
 

@@ -22,7 +22,7 @@ void convert_symbols(char *string) {
             is_open_bracket(string[i]) ||
             is_close_bracket(string[i])) {
             copy[j++] = string[i];
-        } else if (is_binary_operation(string[i] && is_digit(string[i - 1]))) {
+        } else if (is_binary_operation(string[i]) && is_digit(string[i - 1])) {
             copy[j++] = string[i];
         } else {
             accept_shortcuts(string, copy, &i, &j);
@@ -39,22 +39,20 @@ void accept_shortcuts(char *string, char *copy, int *i, int *j) {
     char shortcut;
 
     if (string[*i] == '-') {
-        status = 0;
         copy[(*j)++] = '~';
     } else if (string[*i] == '+') {
-        status = 0;
         copy[(*j)++] = '$';
-    }
+    } else {
+        for (int k = 0; k < SHORTCUTS_COUNT && status; k++) {
+            strcpy(operation, operation_shortcuts[k].operation);
+            shortcut = operation_shortcuts[k].shortcut;
 
-    for (int k = 0; k < SHORTCUTS_COUNT && status; k++) {
-        strcpy(operation, operation_shortcuts[k].operation);
-        shortcut = operation_shortcuts[k].shortcut;
-
-        if (strncmp(string + *i, operation, strlen(operation)) == 0) {
-            copy[(*j)++] = shortcut;
-            status = 0;
+            if (strncmp(string + *i, operation, strlen(operation)) == 0) {
+                copy[(*j)++] = shortcut;
+                status = 0;
+            }
         }
-    }
 
-    *i += strlen(operation) - 1;
+        *i += strlen(operation) - 1;
+    }
 }
