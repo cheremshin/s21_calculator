@@ -5,6 +5,7 @@ void process_number(char *string, int *i, stack_c *out) {
     while (is_digit(string[*i]) || is_dot(string[*i])) {
         push(out, &string[(*i)++]);
     }
+    set_space(out);
 }
 
 void set_space(stack_c *out) {
@@ -12,7 +13,7 @@ void set_space(stack_c *out) {
 
     peek(out, &value);
     if (is_digit(value)) {
-        value = 0;
+        value = SEPARATOR;
         push(out, &value);
     }
 }
@@ -40,15 +41,15 @@ void process_close_bracket(char *string, int *i, stack_c *operations, stack_c *o
 }
 
 void process_binary_operation(char *string, int *i, stack_c *operations, stack_c *out) {
-    char stack_top;
-
-    peek(operations, &stack_top);
-    if (!is_open_bracket(stack_top)) {
+    if (!is_empty_stack(operations)) {
+        char stack_top = 0;
         char op = string[*i];
+        
+        peek(operations, &stack_top);
 
-        int k = 0;
-        while ((is_prefix_function(stack_top)) ||
-              ((get_priority(stack_top) >= get_priority(op)) && !is_open_bracket(stack_top))) {
+        while (!is_empty_stack(operations) &&
+              ((is_prefix_function(stack_top)) ||
+              ((get_priority(stack_top) >= get_priority(op)) && !is_open_bracket(stack_top)))) {
             pop(operations, &stack_top);
             push(out, &stack_top);
             peek(operations, &stack_top);
