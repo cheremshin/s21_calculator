@@ -1,5 +1,5 @@
 all:
-	gcc -g test.c \
+	gcc -g -O0 test.c \
 		   utils/stack.h \
 		   utils/stack.c \
 		   utils/common.h \
