@@ -63,6 +63,14 @@ void delete_stack(stack_c **stack);
 void resize_stack(stack_c *stack);
 
 /**
+ * @brief Function that returns information about precense of elements in stack
+ * 
+ * @param stack Stack to be checked
+ * @return int Boolean status, where '1' is empty and '0' is not
+ */
+int is_empty_stack(stack_c *stack);
+
+/**
  * @brief Function that pushes some value to stack
  * 
  * @param stack Stack for pushing data into it

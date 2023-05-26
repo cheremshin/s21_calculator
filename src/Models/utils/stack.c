@@ -28,6 +28,10 @@ void resize_stack(stack_c *stack) {
     }
 }
 
+int is_empty_stack(stack_c *stack) {
+    return (stack->top == 0);
+}
+
 void push(stack_c *stack, void *value) {
     if (stack->top == stack->size) {
         resize_stack(stack);
