@@ -12,7 +12,7 @@ void set_space(stack_t *out) {
 
     peek(out, &value);
     if (is_digit(value)) {
-        value = 0;
+        value = SEPARATOR;
         push(out, &value);
     }
 }
