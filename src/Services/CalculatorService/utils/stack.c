@@ -84,6 +84,8 @@ void transfer_data(stack_c *source, stack_c *destination) {
         pop(source, value);
         push(destination, value);
     }
+
+    free(value);
 }
 
 void convert_to_string(stack_c *source, char *destination) {
