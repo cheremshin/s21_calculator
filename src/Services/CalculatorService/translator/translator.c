@@ -20,9 +20,12 @@ char *translate_to_polish(char *string) {
     }
 
     transfer_data(operations, out);
-    
-    char *translated_expression = (char *)calloc(out->top, sizeof(char));
+
+    char *translated_expression = (char *)calloc(out->top + 1, sizeof(char));
     convert_to_string(out, translated_expression);
+
+    delete_stack(&out);
+    delete_stack(&operations);
 
     return translated_expression;
 }
