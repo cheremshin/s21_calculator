@@ -1,5 +1,5 @@
-#ifndef SRC_MODELS_TRANSLATOR_H_
-#define SRC_MODELS_TRANSLATOR_H_
+#ifndef SRC_SERVICES_CALULATOR_SERVICE_TRANSLATOR_H_
+#define SRC_SERVICES_CALULATOR_SERVICE_TRANSLATOR_H_
 
 #include <stdlib.h>
 
@@ -41,4 +41,4 @@ int is_prefix_function(char symbol);
 int get_priority(char symbol);
 void set_space(stack_c *out);
 
-#endif // SRC_MODELS_TRANSLATOR_H_
+#endif // SRC_SERVICES_CALULATOR_SERVICE_TRANSLATOR_H_

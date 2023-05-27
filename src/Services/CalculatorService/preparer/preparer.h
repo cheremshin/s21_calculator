@@ -1,5 +1,5 @@
-#ifndef SRC_MODELS_PREPARER_H_
-#define SRC_MODELS_PREPARER_H_
+#ifndef SRC_SERVICES_CALULATOR_SERVICE_PREPARER_H_
+#define SRC_SERVICES_CALULATOR_SERVICE_PREPARER_H_
 
 #include <stdlib.h>
 #include <string.h>
@@ -38,4 +38,4 @@ void accept_shortcuts(char *string, char *copy, int *i, int *j);
 
 int is_correct_number(char *string, int *i);
 
-#endif // SRC_MODELS_PREPARER_H_
+#endif // SRC_SERVICES_CALULATOR_SERVICE_PREPARER_H_

@@ -1,5 +1,5 @@
-#ifndef SRC_MODELS_CALCULATOR_H_
-#define SRC_MODELS_CALCULATOR_H_
+#ifndef SRC_SERVICES_CALULATOR_SERVICE_CALCULATOR_H_
+#define SRC_SERVICES_CALULATOR_SERVICE_CALCULATOR_H_
 
 #include <math.h>
 
@@ -26,4 +26,4 @@ void perform_operation(stack_c *stack, char *expression, int *i);
 double perform_binary_operation(stack_c *stack, char operation);
 double perform_unary_operation(stack_c *stack, char operation);
 
-#endif // SRC_MODELS_CALCULATOR_H_
+#endif // SRC_SERVICES_CALULATOR_SERVICE_CALCULATOR_H_
