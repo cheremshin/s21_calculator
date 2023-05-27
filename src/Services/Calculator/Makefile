@@ -1,5 +1,5 @@
 all:
-	gcc -g -O0 test.c \
+	gcc -g test.c \
 		   utils/stack.h \
 		   utils/stack.c \
 		   utils/common.h \
@@ -17,4 +17,4 @@ all:
 		   calculator/calculator.h \
 		   calculator/calculator.c \
 		   calculator/internal.c \
-		   -o test
+		   -o test -lm
