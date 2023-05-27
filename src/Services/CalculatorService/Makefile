@@ -1,5 +1,7 @@
 all:
 	gcc -g test.c \
+		   calculator_service.h \
+		   calculator_service.c \
 		   utils/stack.h \
 		   utils/stack.c \
 		   utils/common.h \
