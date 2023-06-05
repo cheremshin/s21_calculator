@@ -52,6 +52,6 @@ check_su:
 ifneq ($(OS), Darwin)
 ifneq ($(shell id -u), 0)
 	@echo "You must be root to perform this action."
-	exit 1
+	@exit 1
 endif
 endif
