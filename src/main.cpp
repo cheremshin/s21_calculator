@@ -1,18 +1,17 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include "calculator_service.h"
+#include <QtGui>
+#include <QQmlApplicationEngine>
+#include <QQuickView>
 
 
-int main(void) {
-    double result = 0;
-    std::string expression = "12 + 54 / 7 * cos(1/2)";
+int main(int argc, char *argv[]) {
+    // App
+    QGuiApplication app(argc, argv);
 
-    std::vector<char> cstr(expression.c_str(),
-                           expression.c_str() + expression.size() + 1u);
-    calculate_value(&cstr[0], nullptr, &result);
+    // Startup
+    QQmlApplicationEngine engine;
 
-    std::cout << expression << " = " << result;
+    const QUrl url("qrc:/main.qml");
+    engine.load(url);
 
-    return 0;
+    return app.exec();
 }
