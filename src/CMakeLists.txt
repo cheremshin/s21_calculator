@@ -3,7 +3,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-list(APPEND QT_MODULES Qml Quick Gui)
+list(APPEND QT_MODULES Qml Core Quick Gui)
 find_package(Qt6 COMPONENTS ${QT_MODULES} REQUIRED)
 
 set(QT_PREFIXED_MODULES ${QT_MODULES})
@@ -16,6 +16,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 # Configure and add subdirectories
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/config)
+
 add_subdirectory(Services/CalculatorService/)
 get_target_property(CALCULATOR_SERVICE_INCLUDES CalculatorService INTERFACE_INCLUDE_DIRECTORIES)
 
