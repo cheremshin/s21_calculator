@@ -1,10 +1,12 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Window 2.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
+
+import SimpleCalculator
 
 
-ApplicationWindow
-{
+ApplicationWindow {
     id: baseRoot
     property int defaultWidth:  455
     property int defaultHeight: 770
@@ -19,4 +21,15 @@ ApplicationWindow
 
     visible: true
     title: qsTr("Calculator")
+
+
+    StackView {
+        id: pageManager
+        anchors.fill : parent
+        initialItem: simpleCalculator
+    }
+
+    
+    // Pages
+    Component { id: simpleCalculator; MSimpleCalculator {} }
 }
