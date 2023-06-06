@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>StyleSheet.qml</file>
+        <file>SimpleCalculator/qmldir</file>
+        <file>SimpleCalculator/MSimpleCalculator.qml</file>
+        <file>CustomComponents/qmldir</file>
+        <file>CustomComponents/MRadioButton.qml</file>
     </qresource>
 </RCC>
