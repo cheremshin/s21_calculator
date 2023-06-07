@@ -129,12 +129,10 @@ Item {
     function toggle() {
         if (root.active == false) {
             root.active = true;
-            //switchTop.x = rightPosition;
             animateRightSwitchRectangle.start()
             animateRightSwitchText.start()
         } else {
             root.active = false;
-            //switchTop.x = leftPosition;
             animateLeftSwitchRectangle.start()
             animateLeftSwitchText.start()
         }
