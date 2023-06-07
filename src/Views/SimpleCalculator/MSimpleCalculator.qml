@@ -39,12 +39,16 @@ Page {
             property int radioButtonHeight: 67
 
 
-            Rectangle {
-                id: topPlaceholder
+            Rectangle { height: 20; color: Style.colorMain } // Placeholder
 
-                height: 105
-                color: Style.colorMain
+            MHeavySwitch {
+                width: 288; height: 68
+                Layout.alignment: Qt.AlignCenter
+                leftText: "Simple"
+                rightText: "Extra"
             }
+
+            Rectangle { height: 12; color: Style.colorMain } // Placeholder
 
             RowLayout {
                 id: firstRowLayout
@@ -106,12 +110,7 @@ Page {
                 MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "="; textColor: Style.colorMain; backgroundColor: Style.colorAccent }
             }
 
-            Rectangle {
-                id: bottomPlaceholder
-
-                height: 33
-                color: Style.colorMain
-            }
+            Rectangle { height: 33; color: Style.colorMain } // Placeholder
         }
     }
 }
