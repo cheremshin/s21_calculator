@@ -1,2 +1,3 @@
 module CustomComponents
 MRadioButton 1.0 MRadioButton.qml
+MHeavySwitch 1.0 MHeavySwitch.qml

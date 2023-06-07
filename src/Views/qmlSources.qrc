@@ -6,5 +6,6 @@
         <file>SimpleCalculator/MSimpleCalculator.qml</file>
         <file>CustomComponents/qmldir</file>
         <file>CustomComponents/MRadioButton.qml</file>
+        <file>CustomComponents/MHeavySwitch.qml</file>
     </qresource>
 </RCC>
