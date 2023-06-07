@@ -20,6 +20,10 @@ Item {
     property color colorFocusedButtonText
     property color colorUnfocusedButtonText
 
+    // Switches
+    property color colorSwitchBackground
+    property color colorSwitchBackgroundText
+
     // Corners
     property color colorButtonCorner
     property color colorAlternativeButtonCorner
@@ -43,6 +47,10 @@ Item {
             PropertyChanges { target: styleSheet; colorSecondaryTitle: "#898989" }
 
             // Buttons
+
+            // Switches
+            PropertyChanges { target: styleSheet; colorSwitchBackground: "#E9E9E9" }
+            PropertyChanges { target: styleSheet; colorSwitchBackgroundText: "#A1A1A1" }
 
             // Corners
             PropertyChanges { target: styleSheet; colorButtonCorner: "#EBEBEB" }
