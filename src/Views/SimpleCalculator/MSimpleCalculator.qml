@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+
+import CustomComponents
 import S21Calculator.style
 
 
@@ -27,5 +29,89 @@ Page {
         color: Style.colorBackground
 
         anchors.top: inputBlock.bottom
+
+        ColumnLayout {
+            id: buttonsLayout
+            anchors.fill: parent
+            spacing: 8
+
+            property int radioButtonWidth: 67
+            property int radioButtonHeight: 67
+
+
+            Rectangle {
+                id: topPlaceholder
+
+                height: 105
+                color: Style.colorMain
+            }
+
+            RowLayout {
+                id: firstRowLayout
+                Layout.alignment: Qt.AlignCenter
+                spacing: 8
+
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "("; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: ")"; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "%"; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "+-"; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "/"; textColor: Style.colorAccent }
+            }
+
+            RowLayout {
+                id: secondRowLayout
+                Layout.alignment: Qt.AlignCenter
+                spacing: 8
+
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "C"; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "7" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "8" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "9" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "*"; textColor: Style.colorAccent }
+            }
+
+            RowLayout {
+                id: thirdRowLayout
+                Layout.alignment: Qt.AlignCenter
+                spacing: 8
+
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "X^"; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "4" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "5" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "6" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "-"; textColor: Style.colorAccent }
+            }
+
+            RowLayout {
+                id: fourthRowLayout
+                Layout.alignment: Qt.AlignCenter
+                spacing: 8
+
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "sqrt"; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "1" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "2" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "3" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "+"; textColor: Style.colorAccent }
+            }
+
+            RowLayout {
+                id: fifthRowLayout
+                Layout.alignment: Qt.AlignCenter
+                spacing: 8
+
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "X"; textColor: Style.colorAccent }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "0" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "." }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "b" }
+                MRadioButton { width: buttonsLayout.radioButtonWidth; height: buttonsLayout.radioButtonHeight; text: "="; textColor: Style.colorMain; backgroundColor: Style.colorAccent }
+            }
+
+            Rectangle {
+                id: bottomPlaceholder
+
+                height: 33
+                color: Style.colorMain
+            }
+        }
     }
 }
