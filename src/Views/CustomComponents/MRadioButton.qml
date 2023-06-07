@@ -20,7 +20,7 @@ Item {
 
     // Color
     property color backgroundColor: Style.colorMain
-    property double opacityOnPressed: 1
+    property double opacityOnPressed: 0.8
 
     // Border
     property int borderWidth: 1
@@ -34,13 +34,36 @@ Item {
 
     signal clicked()
 
+    // Animation
+    states: State {
+        name: "clicked"; when: mouseArea.pressed == true
+        PropertyChanges {
+            container {
+                color: Style.colorAccent
+                border.color: root.borderColorOnPressed
+            }
 
+            buttonText {
+                color: Style.colorMain
+            }
+        }
+    }
+
+    transitions: Transition {
+        from: ""; to: "clicked"; reversible: true
+        ParallelAnimation {
+            ColorAnimation { duration: 100 }
+        }
+    }
+
+
+    // View
     Rectangle {
         id: container
         anchors.fill: parent
-        color: mouseArea.pressed ? Style.colorAccent : root.backgroundColor
+        color: root.backgroundColor
         border.width: root.borderWidth
-        border.color: mouseArea.pressed ? root.borderColorOnPressed : root.borderColor
+        border.color: root.borderColor
         radius: root.radius
         opacity: mouseArea.pressed ? root.opacityOnPressed : 1
         antialiasing: true
@@ -56,7 +79,7 @@ Item {
             text: root.text
             font.weight: root.fontWeight
             font.pointSize: root.fontSize
-            color: mouseArea.pressed ? Style.colorMain : root.textColor
+            color: root.textColor
         }
 
         MouseArea {
@@ -66,9 +89,5 @@ Item {
 
             onClicked: root.clicked()
         }
-    }
-
-    function giveFocus() {
-        root.forceActiveFocus();
     }
 }
