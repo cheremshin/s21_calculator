@@ -18,13 +18,81 @@ Page {
         height: 235
 
         color: Style.colorMain
+
+        ColumnLayout {
+            id: inputLayout
+            anchors.fill: parent
+
+            Rectangle {
+                id: menuBox
+                width: parent.width
+                height: parent.height / 10 * 3
+
+                MRadioButton {
+                    width: 130
+                    height: 30
+
+                    x: 20
+                    y: parent.height / 2 - height / 2
+
+                    text: "Simple"
+                    textColor: Style.colorTitle
+                    fontSize: 14
+                }
+            }
+
+            RowLayout {
+                Layout.alignment: Qt.AlignRight
+
+                ColumnLayout {
+                    height: parent.height;
+                    width: parent.width;
+
+                    Rectangle { height: 36; width: parent.width; color: Style.colorMain }
+
+                    Rectangle {
+                        id: oldExpressionBlock
+
+                        width: parent.width
+                        height: 42
+
+                        Label {
+                            anchors.right: parent.right
+                            
+                            text: "273.5 + 57"
+                            color: Style.colorSecondaryTitle
+                            font.pointSize: 24
+                        }
+                    }
+
+                    Rectangle {
+                        id: newExpressionBlock
+                        
+                        width: parent.width
+                        height: 60
+
+                        Label {
+                            anchors.right: parent.right
+
+                            text: "330.5"
+                            color: Style.colorAccent
+                            font.pointSize: 30
+                        }
+                    }
+
+                    Rectangle { height: 28; width: parent.width; color: Style.colorMain }
+                }
+
+                Rectangle { height: parent.height; width: 42; color: Style.colorMain }
+            }
+        }
     }
 
     Rectangle {
         id: buttonsBlock
 
         width: parent.width
-        height: parent.height - 235
+        height: parent.height - inputBlock.height
 
         color: Style.colorBackground
 
