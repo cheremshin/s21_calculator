@@ -36,3 +36,9 @@ target_link_libraries(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
         PRIVATE
                 ${CALCULATOR_SERVICE_INCLUDES})
+
+
+include(CopyRecursive)
+set(FONTS_OUT_DIR ${PROJECT_BINARY_DIR}/resources/fonts)
+file(MAKE_DIRECTORY ${FONTS_OUT_DIR})
+copy_recursive(${PROJECT_SOURCE_DIR}/resources/fonts ${FONTS_OUT_DIR} "*.ttf")
