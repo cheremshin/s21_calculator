@@ -36,17 +36,10 @@ Item {
 
     // Animation
     states: State {
-        name: "clicked"; when: mouseArea.pressed == true
-        PropertyChanges {
-            container {
-                color: Style.colorAccent
-                border.color: root.borderColorOnPressed
-            }
-
-            buttonText {
-                color: Style.colorMain
-            }
-        }
+        name: "clicked"; when: mouseArea.pressed
+        PropertyChanges { target: container; color: Style.colorAccent }
+        PropertyChanges { target: container; border.color: root.borderColorOnPressed }
+        PropertyChanges { target: buttonText; color: Style.colorMain }
     }
 
     transitions: Transition {
