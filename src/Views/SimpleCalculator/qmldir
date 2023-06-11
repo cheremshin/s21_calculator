@@ -1,2 +1,4 @@
 module SimpleCalculator
 MSimpleCalculator 1.0 MSimpleCalculator.qml
+MSimpleButtons 1.0 MSimpleButtons.qml
+MExtraButtons 1.0 MExtraButtons.qml

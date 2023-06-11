@@ -4,6 +4,8 @@
         <file>StyleSheet.qml</file>
         <file>SimpleCalculator/qmldir</file>
         <file>SimpleCalculator/MSimpleCalculator.qml</file>
+        <file>SimpleCalculator/MSimpleButtons.qml</file>
+        <file>SimpleCalculator/MExtraButtons.qml</file>
         <file>CustomComponents/qmldir</file>
         <file>CustomComponents/MRadioButton.qml</file>
         <file>CustomComponents/MHeavySwitch.qml</file>
