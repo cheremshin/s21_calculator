@@ -39,6 +39,11 @@ Item {
     property int leftPosition: 0
     property int rightPosition: width / 2
 
+    // Stack View Switch
+    property StackView stackView
+    property Component leftPage
+    property Component rightPage
+
     signal clicked()
 
 
@@ -99,7 +104,7 @@ Item {
             id: switchTop
             width: parent.width / 2
             height: parent.height
-            x: leftPosition
+            x: active ? root.rightPosition : root.leftPosition
             color: root.activeBackgroundColor
             radius: root.radius
 
@@ -108,7 +113,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                text: root.leftText
+                text: active ? root.rightText : root.leftText
                 color: root.activeTextColor
                 font.pointSize: root.fontSize
             }
@@ -131,10 +136,12 @@ Item {
             root.active = true;
             animateRightSwitchRectangle.start()
             animateRightSwitchText.start()
+            stackView.replace(rightPage)
         } else {
             root.active = false;
             animateLeftSwitchRectangle.start()
             animateLeftSwitchText.start()
+            stackView.replace(leftPage)
         }
     }
 }
