@@ -2,14 +2,14 @@
 
 
 SessionModel::SessionModel(const std::string& expression,
-                           const double& x_variable,
-                           const double& result) {
+                           const std::string& result,
+                           const double& x_variable) {
     this->expression = expression;
-    this->x_variable = x_variable;
     this->result = result;
+    this->x_variable = x_variable;
 }
 
-double SessionModel::getResult() const {
+std::string SessionModel::getResult() const {
     return this->result;
 }
 

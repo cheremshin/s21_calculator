@@ -6,14 +6,14 @@ class SessionModel {
 public:
     SessionModel(
         const std::string& expression,
-        const double& x_variable,
-        const double& result);
+        const std::string& result,
+        const double& x_variable);
 
     // Getters
-    double getResult() const;
+    std::string getResult() const;
     std::string getExpression() const;
 private:
     std::string expression;
+    std::string result;
     double x_variable;
-    double result;
 };
