@@ -17,3 +17,4 @@ private:
     std::string result;
     double x_variable;
 };
+// /ᐠ｡ꞈ｡ᐟ\ мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу 
